@@ -34,7 +34,7 @@ export default function Home() {
           </Link>
           <a
             className="rounded-full border border-solid border-gray-300 transition-all flex items-center justify-center hover:bg-gray-100 font-semibold text-base sm:text-lg h-14 px-8 text-gray-700 shadow-sm hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-300"
-            href="https://github.com/yourusername/sweet-shop-management"
+            href="https://github.com/ShikshaFinder/incubyte-tdd-harsh-jani"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -75,8 +75,8 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/sweet-shop-management.git
-   cd sweet-shop-management
+   git clone https://github.com/ShikshaFinder/incubyte-tdd-harsh-jani.git
+   cd incubyte-tdd-harsh-jani
    ```
 
 2. **Install dependencies:**
