@@ -22,44 +22,94 @@
 ---
 
 ## Features
-- Add, restock, and purchase sweets
-- Secure single-user login (server-side, bcrypt, JWT cookie)
-- Protected API routes
-- TDD with Jest + Supertest
-- Modern UI with Tailwind CSS
+- **Add Sweets**: Create new sweet entries with name, category, price, and quantity
+- **Purchase Management**: Track and process sweet purchases with stock validation
+- **Restock Operations**: Easily restock inventory with custom quantities
+- **Delete Functionality**: Remove sweets from inventory when needed
+- **Advanced Search**: Filter sweets by name, category, and price range
+- **Sorting Options**: Sort by name, category, price, or quantity (ascending/descending)
+- **Secure Authentication**: Single-user login with bcrypt and JWT tokens
+- **Protected API Routes**: All endpoints require authentication
+- **Test-Driven Development**: Comprehensive testing with Jest + Supertest
+- **Modern UI**: Responsive design with Tailwind CSS
 
 ## Technologies Used
-- **Next.js 14+**
-- **Tailwind CSS**
-- **Prisma** (PostgreSQL)
-- **Jest** & **Supertest** (TDD)
-- **JWT** (Authentication)
-- **TypeScript**
+
+### **Next.js 14+**
+- Server-side rendering for better SEO and performance
+- API routes for backend functionality
+- Built-in TypeScript support
+- Optimized development experience
+
+### **Tailwind CSS**
+- Utility-first CSS framework for rapid UI development
+- Responsive design out of the box
+- Customizable design system
+- Reduced CSS bundle size
+
+### **Prisma (ORM)**
+- Type-safe database queries
+- Auto-generated TypeScript types
+- Database migrations and schema management
+- Connection pooling and query optimization
+- Support for multiple databases (PostgreSQL, MySQL, SQLite)
+
+### **Neon Database (PostgreSQL)**
+- Serverless PostgreSQL with automatic scaling
+- Built-in connection pooling
+- Global distribution for low latency
+- Automatic backups and point-in-time recovery
+
+### **Jest & Supertest**
+- Comprehensive testing framework
+- API endpoint testing
+- Mocking and assertion utilities
+- Coverage reporting
+
+### **JWT Authentication**
+- Stateless authentication
+- Secure token-based sessions
+- Cookie-based token storage
 
 ## Setup
 
-1. **Clone the repo and install dependencies:**
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/sweet-shop-management.git
+   cd sweet-shop-management
+   ```
+
+2. **Install dependencies:**
    ```bash
    npm install
    ```
-2. **Configure your database:**
-   - Create a `.env` file in the root:
-     ```env
-     DATABASE_URL="postgresql://username:password@localhost:5432/sweet_shop_db"
-     JWT_SECRET="your-super-secret-jwt-key-here"
-     ```
-   - Replace with your actual PostgreSQL credentials.
-3. **Push the schema to your database:**
+
+3. **Create environment file:**
+   - Create a `.env` file in the root directory
+   - Add the following content:
+   ```env
+   DATABASE_URL='postgresql://neondb_owner:npg_f5QLkhpe2uAE@ep-silent-heart-a7kgwlte-pooler.ap-southeast-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+   JWT_SECRET="your-super-secret-jwt-key-here"
+   ```
+
+4. **Push the schema to your database:**
    ```bash
    npx prisma db push
    ```
-4. **Run the development server:**
+
+5. **Run the development server:**
    ```bash
    npm run dev
    ```
-5. **Run tests:**
+
+6. **Run tests:**
    ```bash
    npm test
+   ```
+
+7. **Run tests with coverage:**
+   ```bash
+   npx jest --coverage
    ```
 
 ## Default Credentials
@@ -81,13 +131,24 @@
 - `PATCH /api/sweets/[id]/purchase` — Purchase sweet (auth required)
 
 ## Screenshots
-_Add screenshots of the login page and dashboard here._
+
+### Dashboard
+![Dashboard Screenshot](public/dashboard.jpg)
+
+### Test Coverage
+![Test Coverage](public/coverage.png)
+
+### Test Results
+![Test Results](public/test.png)
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request. For major changes, open an issue first to discuss what you would like to change.
 
 ## Contact
-For questions or support, please open an issue or contact the maintainer at [your-email@example.com].
+- **Email:** janiharsh794@gmail.com
+- **Phone:** +91 7984140706
+
+For questions or support, please open an issue or contact the maintainer.
 
 ## License
 MIT
