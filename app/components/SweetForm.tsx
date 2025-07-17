@@ -58,15 +58,23 @@ export default function SweetForm({ onSubmit, loading }: SweetFormProps) {
           >
             Category
           </label>
-          <input
+          <select
             id="category"
-            type="text"
-            placeholder="e.g. Traditional"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             className="flex-1 border rounded px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
             required
-          />
+          >
+            <option value="" disabled>
+              Select category
+            </option>
+            <option value="NUT based">NUT based</option>
+            <option value="milk based">milk based</option>
+            <option value="vegetable based (vegan)">
+              vegetable based (vegan)
+            </option>
+            <option value="premium">premium</option>
+          </select>
         </div>
         <div className="flex flex-row items-center gap-6">
           <label
