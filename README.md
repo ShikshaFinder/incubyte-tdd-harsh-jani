@@ -3,7 +3,7 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ## 🚀 Live Demo
-[Try the Sweet Shop Management System](https://incubyte-tdd-harsh-jani-3kuy.vercel.app/sweets)
+[Try the Sweet Shop Management System](https://incubyte-tdd-harsh-jani-3kuy.vercel.app/)
 
 ---
 
