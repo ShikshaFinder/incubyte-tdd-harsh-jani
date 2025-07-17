@@ -171,13 +171,15 @@ describe("Sweets API", () => {
       const req = new NextRequest("http://localhost:3000/api/sweets/1", {
         method: "DELETE",
       });
-      const res = await DELETE(req, { params: { id: "1" } });
+      const res = await DELETE(req, { params: Promise.resolve({ id: "1" }) });
       expect(res.status).toBe(401);
     });
 
     it("should return 404 for non-existent sweet", async () => {
       const req = createDeleteRequest(99999);
-      const res = await DELETE(req, { params: { id: "99999" } });
+      const res = await DELETE(req, {
+        params: Promise.resolve({ id: "99999" }),
+      });
       expect(res.status).toBe(404);
     });
 
@@ -195,7 +197,7 @@ describe("Sweets API", () => {
       // Now, delete it
       const deleteReq = createDeleteRequest(sweet.id);
       const deleteRes = await DELETE(deleteReq, {
-        params: { id: String(sweet.id) },
+        params: Promise.resolve({ id: String(sweet.id) }),
       });
       expect(deleteRes.status).toBe(200);
     });
