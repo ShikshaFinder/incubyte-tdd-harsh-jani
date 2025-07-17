@@ -34,10 +34,10 @@ export default function SweetForm({ onSubmit, loading }: SweetFormProps) {
         Add New Sweet
       </h2>
       <div className="flex flex-col gap-6">
-        <div className="flex flex-row items-center gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
           <label
             htmlFor="name"
-            className="w-32 text-right font-medium text-gray-700"
+            className="w-full sm:w-32 sm:text-right font-medium text-gray-700"
           >
             Name
           </label>
@@ -51,10 +51,10 @@ export default function SweetForm({ onSubmit, loading }: SweetFormProps) {
             required
           />
         </div>
-        <div className="flex flex-row items-center gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
           <label
             htmlFor="category"
-            className="w-32 text-right font-medium text-gray-700"
+            className="w-full sm:w-32 sm:text-right font-medium text-gray-700"
           >
             Category
           </label>
@@ -76,10 +76,10 @@ export default function SweetForm({ onSubmit, loading }: SweetFormProps) {
             <option value="premium">premium</option>
           </select>
         </div>
-        <div className="flex flex-row items-center gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
           <label
             htmlFor="price"
-            className="w-32 text-right font-medium text-gray-700"
+            className="w-full sm:w-32 sm:text-right font-medium text-gray-700"
           >
             Price
           </label>
@@ -95,10 +95,10 @@ export default function SweetForm({ onSubmit, loading }: SweetFormProps) {
             required
           />
         </div>
-        <div className="flex flex-row items-center gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
           <label
             htmlFor="quantity"
-            className="w-32 text-right font-medium text-gray-700"
+            className="w-full sm:w-32 sm:text-right font-medium text-gray-700"
           >
             Quantity
           </label>

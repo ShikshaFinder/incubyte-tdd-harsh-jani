@@ -178,28 +178,28 @@ export default function SweetsPage() {
       </div>
       <form
         onSubmit={handleSearch}
-        className="flex flex-wrap gap-2 w-full max-w-5xl items-end bg-white p-4 rounded shadow border border-gray-200 mb-2"
+        className="flex flex-col sm:flex-row flex-wrap gap-2 w-full max-w-5xl items-end bg-white p-4 rounded shadow border border-gray-200 mb-2"
       >
         <input
           type="text"
           placeholder="Search Name"
           value={searchName}
           onChange={(e) => setSearchName(e.target.value)}
-          className="border rounded px-2 py-1"
+          className="border rounded px-2 py-1 flex-1 min-w-0"
         />
         <input
           type="text"
           placeholder="Search Category"
           value={searchCategory}
           onChange={(e) => setSearchCategory(e.target.value)}
-          className="border rounded px-2 py-1"
+          className="border rounded px-2 py-1 flex-1 min-w-0"
         />
         <input
           type="number"
           placeholder="Min Price"
           value={minPrice}
           onChange={(e) => setMinPrice(e.target.value)}
-          className="border rounded px-2 py-1"
+          className="border rounded px-2 py-1 w-full sm:w-auto"
           min={0}
           step={0.01}
         />
@@ -208,14 +208,14 @@ export default function SweetsPage() {
           placeholder="Max Price"
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}
-          className="border rounded px-2 py-1"
+          className="border rounded px-2 py-1 w-full sm:w-auto"
           min={0}
           step={0.01}
         />
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="border rounded px-2 py-1"
+          className="border rounded px-2 py-1 w-full sm:w-auto"
         >
           <option value="">Sort By</option>
           <option value="name">Name</option>
@@ -226,14 +226,14 @@ export default function SweetsPage() {
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
-          className="border rounded px-2 py-1"
+          className="border rounded px-2 py-1 w-full sm:w-auto"
         >
           <option value="asc">Asc</option>
           <option value="desc">Desc</option>
         </select>
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-semibold"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-semibold w-full sm:w-auto"
           disabled={loading}
         >
           Search
