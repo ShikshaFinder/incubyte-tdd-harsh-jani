@@ -141,14 +141,12 @@
 ### Test Results
 ![Test Results](public/test.png)
 
-## Contributing
-Contributions are welcome! Please fork the repository and submit a pull request. For major changes, open an issue first to discuss what you would like to change.
 
 ## Contact
 - **Email:** janiharsh794@gmail.com
 - **Phone:** +91 7984140706
 
-For questions or support, please open an issue or contact the maintainer.
+For questions please contact 7984140706.
 
 ## License
 MIT
