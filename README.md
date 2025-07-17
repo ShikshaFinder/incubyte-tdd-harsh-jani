@@ -71,6 +71,12 @@
 - Secure token-based sessions
 - Cookie-based token storage
 
+### **AI-Assisted Development**
+- **GitHub Copilot**: Used for code generation, suggestions, and autocompletion
+- **Claude AI**: Assisted with complex logic implementation, debugging, and code optimization
+- **ChatGPT**: Helped with API design, testing strategies, and documentation
+- **AI-Powered Testing**: Used AI assistance for comprehensive test case generation and coverage optimization
+
 ## Setup
 
 1. **Clone the repository:**
