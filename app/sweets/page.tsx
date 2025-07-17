@@ -89,6 +89,65 @@ export default function SweetsPage() {
     }
   }
 
+  async function handleRestock(id: number) {
+    const amount = prompt("Restock amount?", "5");
+    if (!amount) return;
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(`/api/sweets/${id}/restock`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ amount: Number(amount) }),
+      });
+      if (!res.ok) throw new Error("Failed to restock");
+      await fetchSweets();
+    } catch (e: any) {
+      setError(e.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handlePurchase(id: number) {
+    const amount = prompt("Purchase amount?", "1");
+    if (!amount) return;
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(`/api/sweets/${id}/purchase`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ amount: Number(amount) }),
+      });
+      if (!res.ok) throw new Error("Failed to purchase");
+      await fetchSweets();
+    } catch (e: any) {
+      setError(e.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleDeleteSweet(id: number) {
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(`/api/sweets/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error("Failed to delete sweet");
+      await fetchSweets();
+    } catch (e: any) {
+      setError(e.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   async function handleLogout() {
     setLoading(true);
     setError("");
@@ -117,6 +176,69 @@ export default function SweetsPage() {
           Logout
         </button>
       </div>
+      <form
+        onSubmit={handleSearch}
+        className="flex flex-wrap gap-2 w-full max-w-5xl items-end bg-white p-4 rounded shadow border border-gray-200 mb-2"
+      >
+        <input
+          type="text"
+          placeholder="Search Name"
+          value={searchName}
+          onChange={(e) => setSearchName(e.target.value)}
+          className="border rounded px-2 py-1"
+        />
+        <input
+          type="text"
+          placeholder="Search Category"
+          value={searchCategory}
+          onChange={(e) => setSearchCategory(e.target.value)}
+          className="border rounded px-2 py-1"
+        />
+        <input
+          type="number"
+          placeholder="Min Price"
+          value={minPrice}
+          onChange={(e) => setMinPrice(e.target.value)}
+          className="border rounded px-2 py-1"
+          min={0}
+          step={0.01}
+        />
+        <input
+          type="number"
+          placeholder="Max Price"
+          value={maxPrice}
+          onChange={(e) => setMaxPrice(e.target.value)}
+          className="border rounded px-2 py-1"
+          min={0}
+          step={0.01}
+        />
+        <select
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+          className="border rounded px-2 py-1"
+        >
+          <option value="">Sort By</option>
+          <option value="name">Name</option>
+          <option value="category">Category</option>
+          <option value="price">Price</option>
+          <option value="quantity">Quantity</option>
+        </select>
+        <select
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+          className="border rounded px-2 py-1"
+        >
+          <option value="asc">Asc</option>
+          <option value="desc">Desc</option>
+        </select>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-semibold"
+          disabled={loading}
+        >
+          Search
+        </button>
+      </form>
       <SweetForm onSubmit={handleAddSweet} loading={loading} />
       {error && <div className="text-red-500 text-sm">{error}</div>}
       {loading && <div className="text-blue-500 text-sm">Loading...</div>}
@@ -125,9 +247,9 @@ export default function SweetsPage() {
           <SweetCard
             key={sweet.id}
             sweet={sweet}
-            onRestock={() => {}}
-            onPurchase={() => {}}
-            onDelete={() => {}}
+            onRestock={handleRestock}
+            onPurchase={handlePurchase}
+            onDelete={handleDeleteSweet}
           />
         ))}
       </div>

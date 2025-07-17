@@ -5,9 +5,8 @@ process.env.DATABASE_URL || "postgresql://test:test@localhost:5432/test_db";
 // Increase timeout for all tests
 jest.setTimeout(30000);
 
-// In-memory sweets store for mocking
-const sweets: any[] = [];
 let idCounter = 1;
+const sweets: any[] = [];
 
 // Mock Prisma client for tests
 jest.mock("@/lib/prisma", () => ({
@@ -55,6 +54,42 @@ jest.mock("@/lib/prisma", () => ({
         const sweet = { ...data, id: idCounter++ };
         sweets.push(sweet);
         return sweet;
+      }),
+      delete: jest.fn(({ where }) => {
+        const idx = sweets.findIndex((s) => s.id === where.id);
+        if (idx === -1) throw new Error("Not found");
+        const [deleted] = sweets.splice(idx, 1);
+        return deleted;
+      }),
+      findUnique: jest.fn().mockImplementation(({ where }) => {
+        // Return null for non-existent IDs (like 99999)
+        if (where.id === 99999) {
+          return Promise.resolve(null);
+        }
+        return Promise.resolve({
+          id: where.id || 1,
+          name: "Test Sweet",
+          category: "Test",
+          price: 10,
+          quantity: 5,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        });
+      }),
+      update: jest.fn().mockImplementation(({ where, data }) => {
+        // Return null for non-existent IDs (like 99999)
+        if (where.id === 99999) {
+          return Promise.resolve(null);
+        }
+        return Promise.resolve({
+          id: where.id || 1,
+          name: "Test Sweet",
+          category: "Test",
+          price: 10,
+          quantity: data.quantity || 10,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        });
       }),
     },
   },

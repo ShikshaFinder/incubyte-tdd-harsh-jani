@@ -26,18 +26,13 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-8 rounded shadow-md w-80 flex flex-col gap-4"
-      >
-        <h1 className="text-2xl font-bold mb-2 text-center">
-          Sweet Shop Login
-        </h1>
+      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-80 flex flex-col gap-4">
+        <h1 className="text-2xl font-bold mb-2 text-center">Sweet Shop Login</h1>
         <input
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={e => setEmail(e.target.value)}
           className="border rounded px-3 py-2"
           required
         />
@@ -45,18 +40,13 @@ export default function LoginPage() {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={e => setPassword(e.target.value)}
           className="border rounded px-3 py-2"
           required
         />
         {error && <div className="text-red-500 text-sm">{error}</div>}
-        <button
-          type="submit"
-          className="bg-blue-600 text-white rounded py-2 font-semibold hover:bg-blue-700"
-        >
-          Login
-        </button>
+        <button type="submit" className="bg-blue-600 text-white rounded py-2 font-semibold hover:bg-blue-700">Login</button>
       </form>
     </div>
   );
-}
+} 
